@@ -14,7 +14,7 @@ class Blog(BaseBlog):
         orm_mode = True  # this tells pydantic to read ORM model data
 
 
-class BaseUser(BaseModel):
+class User(BaseModel):
     name: str
     email: str
     password: str
