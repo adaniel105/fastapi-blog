@@ -1,9 +1,7 @@
 from fastapi import FastAPI
 from starlette.responses import HTMLResponse
-# import locale files
 from models import models
 from database.configuration import engine
-# import router files
 from core import blog, user, auth
 
 
