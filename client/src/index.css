@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+body{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+  background-color: hsl(0, 0%, 5%);
+  color: white;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
 @layer base {
   :root {
