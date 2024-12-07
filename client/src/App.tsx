@@ -4,7 +4,7 @@ import { ModeToggle } from "@/components/mode-toggle"
 export default function App(){
   return(
     <div className="mt-20 ml-20 max-w-3xl">
-      <div className="absolute top-2 right-2">
+      <div className="fixed top-2 right-2">
         <ModeToggle  />
       </div>
       <h1 className="text-4xl">All Blogs</h1>
