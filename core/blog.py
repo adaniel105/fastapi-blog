@@ -3,16 +3,16 @@ from fastapi import APIRouter, Depends, Response, status
 from sqlalchemy.orm import Session
 
 from api import blog
-from database import configuration
+from database import session
 from schema import schemas
 from schema.oa2 import get_current_user
 
 router = APIRouter(tags=["Blogs"], prefix="/blog")
-get_db = configuration.get_db
+get_db = session.get_db
 
 
 @router.get("/", response_model=List[schemas.ShowBlog])
-def get_all_blogs(
+async def get_all_blogs(
     db: Session = Depends(get_db),
     current_user: schemas.User = Depends(get_current_user),
 ):
@@ -30,7 +30,7 @@ def get_all_blogs(
 
 
 @router.post("/", status_code=status.HTTP_201_CREATED)
-def create(
+async def create(
     request: schemas.Blog,
     db: Session = Depends(get_db),
     current_user: schemas.User = Depends(get_current_user),
@@ -50,7 +50,7 @@ def create(
 
 
 @router.get("/{id}", status_code=status.HTTP_200_OK, response_model=schemas.ShowBlog)
-def get_blog_by_id(
+async def get_blog_by_id(
     id: int,
     response: Response,
     db: Session = Depends(get_db),
@@ -72,7 +72,7 @@ def get_blog_by_id(
 
 
 @router.delete("/{id}", status_code=status.HTTP_204_NO_CONTENT)
-def delete_blog(
+async def delete_blog(
     id: int,
     db: Session = Depends(get_db),
     current_user: schemas.User = Depends(get_current_user),
@@ -92,7 +92,7 @@ def delete_blog(
 
 
 @router.put("/{id}", status_code=status.HTTP_202_ACCEPTED)
-def update_blog(
+async def update_blog(
     id: int,
     request: schemas.Blog,
     db: Session = Depends(get_db),

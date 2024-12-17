@@ -1,16 +1,14 @@
-#!/usr/bin/python3
-
 from typing import List
 
 from fastapi import APIRouter, Depends, status
 from sqlalchemy.orm import Session
 
 from api import user
-from database import configuration
+from database import session
 from schema import schemas
 
 router = APIRouter(tags=["Users"], prefix="/users")
-get_db = configuration.get_db
+get_db = session.get_db
 
 
 @router.post("/", status_code=status.HTTP_201_CREATED, response_model=schemas.ShowUser)
