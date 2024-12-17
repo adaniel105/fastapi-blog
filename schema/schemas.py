@@ -10,15 +10,14 @@ class BaseBlog(BaseModel):
 class Blog(BaseBlog):
 
     class Config():
-        # renamed from orm_mode = True, this tells pydantic to read ORM model data
         from_attributes = True
 
 
 class User(BaseModel):
-    name: str
+    first_name: str
+    last_name : str
     email: str
     password: str
-
 
 class ShowUser(BaseModel):
     name: str
