@@ -7,7 +7,7 @@ from schema.hash import Hash  # this will be done during security impl
 
 def create(request: schemas.User, db: Session):
     hashedPassword = Hash.bcrypt(request.password)
-    user = models.User(name=request.name, email=request.email,
+    user = models.User(first_name=request.first_name, last_name=request.last_name, email=request.email,
                        password=hashedPassword)
 
     db.add(user)

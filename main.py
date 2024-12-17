@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from starlette.responses import HTMLResponse
 from models import models
-from database.configuration import engine
+from database.session import engine
 from core import blog, user, auth
 
 
