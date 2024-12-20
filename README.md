@@ -4,5 +4,4 @@ This is a secure blog API built with
 - PostgreSQL, 
 - passlib[bcrypt] for password hashing, 
 - JWT for authentication
-- Alembic for data migrations
-
+- Alembic for data migration
