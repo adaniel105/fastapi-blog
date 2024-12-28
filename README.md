@@ -7,9 +7,9 @@ This is a secure blog API built with
 - Alembic for data migration
 
 ## HOW TO RUN
-''' bash
+``` bash
 cd fastapi-blog
 alembic revision --autogenerate
 python3 initial_data.py
 fastapi dev main.py
-'''
+```
